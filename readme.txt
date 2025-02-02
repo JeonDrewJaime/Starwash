@@ -25,3 +25,8 @@ Create your own staff:
 Default Username and Password for Admin:
 user: admin
 pass: admin123
+
+**EMAIL API DETAILS**
+email:starwash099@gmail.com
+password: sirjoshsakalam@123
+

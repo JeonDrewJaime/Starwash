@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Boom Wash Laundy Shop System</title>
+  <title>Star Wash Laundy Shop System</title>
  	
 
 <?php

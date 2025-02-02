@@ -4,218 +4,246 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Login |Star Wash Laundry Shop</title>
- 	
-
-<?php include('./header.php'); ?>
-<?php include('./db_connect.php'); ?>
-<?php 
-session_start();
-if(isset($_SESSION['login_id']))
-header("location:index.php?page=home");
-
-?>
-
+  <title>Login | Star Wash Laundry Shop</title>
+  <?php include('./header.php'); ?>
+  <?php include('./db_connect.php'); ?>
+  <?php
+  session_start();
+  if (isset($_SESSION['login_id']))
+    header("location:index.php?page=home");
+  ?>
 </head>
+
 <style>
-	body{
-		width:100%;
-		height:100%;
-	}
-	main#main{
-		width:100%;
-		height:100%;
-		background-image: url("./assets/img/LoginBGs.jpg");
-	}
-	#login-right{
-		position: absolute;
-		right:0;
-		width:40%;
-		margin:auto;
-		background-position: center;
-  		background-repeat: no-repeat;
-  		background-size: cover;
-		height: calc(100%);
-		background-image: url("./assets/img/bubss.jpg");
-		display: flex;
-		align-items: center;
-	}
-	#login-left{
-		position: absolute;
-		left:0;
-		width:60%;
-		background-position: center;
-		height: calc(100%);
-		background-repeat: no-repeat;
-		background-size: cover;
-	    background-image: url("./assets/img/laundryBG.jpg");
-		display: flex;
-		align-items: center;
-		
-	}
-	#login-right .card{
-		margin: auto;
-		
-	}
-	.logo {
-    margin: auto;
-	height:10%;
-	margin-top:-210px;
-    font-size: 10rem;
-    padding: .5em 0.7em;
-    border-radius: 50% 50%;
-    color: #000000b3;
-}
-.btn-block{
-	border-radius: 25px;
-	background-color: #59b6ec61;
-	color:gray;
-	border-color:#59b6ec61;
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
 
-}
-.btn-block:hover{
-	background-color: #59b6ec61;
-	color:gray;
-}
-.col-md-8{
-	border-radius:25px;
-	height:500px;
-	border-color: #00ffff;
-}
-.text{
-	margin-top:140px;
-	font-size: 20px;
-}
-.form-control{
-	border-radius: 25px;
-	height:50px
-}
-.picture{
-	height:10px;
-	width:200px;
-	position: center;
-	margin:auto;
-}
-.date{
-	margin: auto;
-	height:10px;
-	margin-top:-210px;
-    font-size: 8rem;
-    padding: .5em 0.7em;
-    border-radius: 50% 50%;
-    color: #000000b3;
+  main#main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("./assets/img/LoginBGs.jpg");
+    background-size: cover;
+    background-position: center;
+  }
 
-}
+  #login-container {
+    display: flex;
+    width: 100%;
+   
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  #login-left {
+    flex: 1.5; /* Wider left section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("./assets/img/laundryBG.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  #login-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("./assets/img/bubss.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .logo img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .btn-block {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #59b6ec;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .btn-block:hover {
+    background-color: #4aa1d1;
+  }
+
+  .text {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .date-time {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  @media (max-width: 1200px) {
+    #login-container {
+      max-width: 1200px; /* Adjust for smaller monitors */
+    }
+  }
+
+  @media (max-width: 768px) {
+    #login-container {
+      flex-direction: column;
+      height: 90%;
+      max-width: 100%;
+    }
+
+  
+    #login-left{
+      flex: none;
+      width: 100%;
+      height:25vh;
+    }
+
+	#login-right {
+      flex: none;
+      width: 100%;
+      height: 75vh;
+    }
+    .card {
+      margin: 20px auto;
+    }
+	body {
+        height: 100%;
+    }
+  }
 </style>
 
-<body onload=display_ct()>
-
-
-  <main id="main" class=" bg-dark">
-  		<div id="login-left">
-  			<div class="logo">
-  				<!-- <div class="laundry-logo"></div> -->
-
-
-
-
-					<script>
-					function runTime(){
-						var refresh=1000; // Refresh rate in milli seconds
-						mytime=setTimeout('display_ct()',refresh)
-					}
-
-					function display_ct() {
-						var date = new Date().toLocaleDateString()
-						var time = new Date().toLocaleTimeString()
-						document.getElementById('date').innerHTML = "Date : " + date;
-						document.getElementById('time').innerHTML = "Time : " + time;
-						runTime();
-					}
-					</script>
-	</center>				  
-
-  			</div>
-  		</div>
-  		<div id="login-right">
-  			<div class="card border-info col-md-9">
-				  	<div class="picture">
-					 <center> <img src="assets/img/StarWash.png" alt="StarWashLogo"  width="200px" height="180px"> </center>
-				   </div>
-				   <br><br>
-				  <div class="text">
-				  <center><h5 class="p1">A NEW INNOVATION FOR LAUNDRY</h5></center>
-  				<div class="card-body">
-  					<form id="login-form" >
-  						<div class="form-group">
-  							<label for="username" class="control-label">Username</label>
-  							<input type="text" id="username" name="username" class="form-control" placeholder="Username">
-  						</div>
-  						<div class="form-group">
-  							<label for="password" class="control-label">Password</label> 
-  							<input type="password" id="password" name="password" class="form-control" placeholder="Password">
-							 <br> 
-							  <label for="password">Show password</label>
-								<input type="checkbox" onclick="myfucntion()">
-								<script>
-								function myfucntion() {
-  								var x = document.getElementById("password");
-  								if (x.type === "password") {
-   								 x.type = "text";
- 								 } else {
-   								 x.type = "password";
-  										}
-										}	
-						</script>
-  						</div>
-						 
-  						<center><button class="btn btn-primary btn-lg btn-block">Login</button></center>
-  					</form>
-		<center>
-		<hr>
-		<strong><p style=" font-style: normal; color:black;"><span id="date"></span></p></strong>
-		<strong><p style="font-style: normal; color:black;"><span id="time"></span></p></strong>
-		<hr>
-		</center>
-  				</div>
-  			</div>
-  		</div>
-   
-
+<body onload="display_ct()">
+  <main id="main">
+    <div id="login-container">
+      <div id="login-left">
+        <div class="logo">
+          <img src="assets/img/StarWash.png" alt="StarWash Logo">
+        </div>
+      </div>
+      <div id="login-right">
+        <div class="card">
+          <div class="logo">
+            <img src="assets/img/StarWash.png" alt="StarWash Logo">
+          </div>
+          <div class="text">
+            <center>
+              <h5>A NEW INNOVATION FOR LAUNDRY</h5>
+            </center>
+          </div>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+              <label for="show-password">Show Password</label>
+              <input type="checkbox" id="show-password" onclick="togglePassword()">
+            </div>
+            <button type="submit" class="btn btn-block">Login</button>
+          </form>
+          <div class="date-time">
+            <center>
+              <strong>
+                <p><span id="date"></span></p>
+                <p><span id="time"></span></p>
+              </strong>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <script>
+    function display_ct() {
+      var date = new Date().toLocaleDateString();
+      var time = new Date().toLocaleTimeString();
+      document.getElementById('date').innerHTML = "Date: " + date;
+      document.getElementById('time').innerHTML = "Time: " + time;
+      setTimeout(display_ct, 1000);
+    }
 
+    function togglePassword() {
+      var passwordField = document.getElementById('password');
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+      } else {
+        passwordField.type = 'password';
+      }
+    }
 
+    $('#login-form').submit(function (e) {
+      e.preventDefault();
+      $('button[type="submit"]').attr('disabled', true).html('Logging in...');
+      if ($(this).find('.alert-danger').length > 0)
+        $(this).find('.alert-danger').remove();
+      $.ajax({
+        url: 'ajax.php?action=login',
+        method: 'POST',
+        data: $(this).serialize(),
+        dataType: "text",
+        error: function (err) {
+          console.log(err);
+          $('button[type="submit"]').removeAttr('disabled').html('Login');
+        },
+        success: function (resp) {
+          if (resp == 1) {
+            location.href = 'index.php?page=home';
+          } else if (resp == 2) {
+            location.href = 'voting.php';
+          } else {
+            $('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>');
+            $('button[type="submit"]').removeAttr('disabled').html('Login');
+          }
+        }
+      });
+    });
+  </script>
 </body>
-<script>
-	$('#login-form').submit(function(e){
-		e.preventDefault()
-		$('#login-form button[type="button"]').attr('disabled',true).html('Logging in...');
-		if($(this).find('.alert-danger').length > 0 )
-			$(this).find('.alert-danger').remove();
-		$.ajax({
-			url:'ajax.php?action=login',
-			method:'POST',
-			data:$(this).serialize(),
-			dataType: "text",
-			error:err=>{
-				console.log(err)
-				$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
-			},
-			success:function(resp){
-				console.log(resp)
-				if(resp == 1){
-					location.href ='index.php?page=home';
-				}else if(resp == 2){
-					location.href ='voting.php';
-				}else{
-					$('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>')
-					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
-				}
-			}
-		})
-	})
-</script>	
+
 </html>

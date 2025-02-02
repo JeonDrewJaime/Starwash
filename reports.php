@@ -131,12 +131,7 @@
 			.text-right{
 				text-align: center
 			}
-			p{
-				margin:unset;
-			}
-			#div p {
-				display: block;
-			}
+	
 			p.text-center {
 			    text-align: -webkit-center;
 			}

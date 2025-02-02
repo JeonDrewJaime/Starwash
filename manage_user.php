@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
         <div class="form-group">
             <!-- Default user image -->
             <img class="image-profile" style="cursor: pointer; display: block; width: 180px; height: 180px; margin: 0 auto; border-radius:50%;" src="<?= isset($meta['image']) ? $meta['image'] : './assets/img/defaultuser.png' ?>" alt="Profile Image">
-            <input class="form-control mt-3" type="file" name="photo" id="photo">
+            <input class="form-control mt-3" type="file" name="photo" id="photo" accept="image/*" required>
         </div>
         <div class="form-group">
             <label for="first_name">First Name</label>
